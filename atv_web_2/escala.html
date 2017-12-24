@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+	<title>Escala Richter</title>
+	<script type="text/javascript">
+		function init() {
+			document.getElementById("nivel1").style.display = "none";
+			document.getElementById("nivel2").style.display = "none";
+			document.getElementById("nivel3").style.display = "none";
+			document.getElementById("nivel4").style.display = "none";
+			document.getElementById("nivel5").style.display = "none";
+			document.getElementById("nivel6").style.display = "none";
+		}
+		function calcula() {
+			var x = parseFloat(document.dados.amplitude.value);
+			var y = parseFloat(document.dados.intervalo.value);
+			if(x == 0 || isNaN(x)) {
+				document.getElementById("grupoAmplitude").classList.add("has-error");
+				document.getElementById("alertAmplitude").style.display = "block";
+				document.dados.amplitude.value = "";
+				document.dados.amplitude.focus();
+				return;
+			}
+			document.getElementById("grupoAmplitude").classList.remove("has-error");
+			document.getElementById("alertAmplitude").style.display = "none";
+
+			if(y == 0 || isNaN(y)) {
+				document.getElementById("grupoIntervalo").classList.add("has-error");
+				document.getElementById("alertIntervalo").style.display = "block";
+				document.dados.intervalo.value = "";
+				document.dados.intervalo.focus();
+				return;
+			}
+			document.getElementById("grupoIntervalo").classList.remove("has-error");
+			document.getElementById("alertIntervalo").style.display = "none";
+			
+			var resultado = Math.log10(x) + 3 * Math.log10(8*y) - 2.92;
+			document.dados.resultado.value = resultado;
+
+			if(resultado < 3.5) {
+				init();
+				document.getElementById("nivel1").style.display = "block";
+			} else if(resultado <= 3.5 && resultado <= 5.4) {
+				init();
+				document.getElementById("nivel2").style.display = "block";
+			} else if(resultado <= 5.5 && resultado <= 6) {
+				init();
+				document.getElementById("nivel3").style.display = "block";
+			} else if(resultado <= 6.1 && resultado <= 6.9) {
+				init();
+				document.getElementById("nivel4").style.display = "block";
+			} else if(resultado <= 7 && resultado <= 7.9) {
+				init();
+				document.getElementById("nivel5").style.display = "block";
+			} else if(resultado >= 8) {
+				init();
+				document.getElementById("nivel6").style.display = "block";
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="container">
+		<form class="form-horizontal" name="dados">
+			<div class="jumbotron text-center alert-warning">
+				<h1 align="center"><b><i>Escala Richter</b></i></h1>
+			</div>
+			<div id="grupoAmplitude" class="form-group">
+				<label class="col-sm-4 control-label">Informe a amplitude (milimetros)</label>
+				<div class="col-sm-8">
+					<input name="amplitude" type="text" class="form-control">
+				</div>
+				<div class="alert alert-danger" id="alertAmplitude" style="display:none">
+					Informe a amplitude corretamente.
+				</div>
+			</div>
+			<div id="grupoIntervalo" class="form-group">
+				<label class="col-sm-4 control-label">Informe o intervalo de tempo entre a onda superficial e a de pressão máxima (segundos)</label>
+				<div class="col-sm-8">
+					<input name="intervalo" type="text" class="form-control">
+				</div>
+				<div class="alert alert-danger" id="alertIntervalo" style="display:none">
+					Informe o intervalo corretamente.
+				</div>
+			</div>
+			<div id="grupoRes" class="form-group">
+				<label class="col-sm-4 control-label">Magnitude</label>
+				<div class="col-sm-8">
+					<input name="resultado" type="text" class="form-control" disabled="disabled">
+				</div>
+			</div><br><br>
+
+			<div align="center">
+				<button type="button" onclick="calcula()" class="btn btn-default">Calcular</button>
+				<button type="reset" class="btn btn-default">Limpar</button>
+			</div><br><br>
+
+			<div class="alert alert-warning" id="nivel1" style="display:none">
+				Geralmente não sentido, mas gravado.
+			</div>
+			<div class="alert alert-warning" id="nivel2" style="display:none">
+				Às vezes sentido, mas raramente causa danos.
+			</div>
+			<div class="alert alert-warning" id="nivel3" style="display:none">
+				No máximo causa pequenos danos a prédios bem construídos, mas pode danificar seriamente casas mal construídas em regiões próximas.
+			</div>
+			<div class="alert alert-warning" id="nivel4" style="display:none">
+				Pode ser destrutivo em áreas em torno de até 100km do epicentro.
+			</div>
+			<div class="alert alert-warning" id="nivel5" style="display:none">
+				Grande terremoto. Pode causar sérios danos numa grande faixa.
+			</div>
+			<div class="alert alert-warning" id="nivel6" style="display:none">
+				Enorme terremoto. Pode causar graves danos em muitas áreas mesmo que estejam a centenas de quilômetros.
+			</div>
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+	<script type="text/javascript" src="jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="regras.js"></script>
+	<title>Jogo das Figuras</title>
+</head>
+<body>
+	<audio src="music.mp3" autoplay loop>
+		<p>Seu navegador não suporta o elemento audio </p>
+	</audio>
+	<div class="container">
+		<div class="jumbotron text-center alert-warning">
+			<h1 align="center"><b><i>Jogo das Figuras</b></i></h1>
+		</div>
+		<h3 align="center"><b>Selecione a palavra que não pertence a cada um dos grupos</b></h3><br>
+		<div id="grupo1" class="panel panel-warning text-center">
+			<div class="panel-heading text-center">
+              	<h3><b>Grupo 1</b></h3>
+            </div>
+            <div class="panel-body">
+	            <div class="col-md-3">
+	            	<a id="arroz">
+						<img src="img/arroz.jpg">
+					</a>
+					<div class="caption">
+						<b><h3>Arroz</h3></b>
+					</div>
+					<div class="alert alert-danger" id="alertArroz" style="display:none">
+						Resposta incorreta.
+					</div>
+				</div>
+				<div class="col-md-3">
+					<a id="sabonete" href="#">
+						<img src="img/sabonete.jpg">
+					</a>
+					<div class="caption">
+						<b><h3>Sabonete</h3></b>
+					</div>
+					<div class="alert alert-success" id="alertSabonete" style="display:none">
+						Resposta correta, parabéns!
+					</div>
+				</div>
+				<div class="col-md-3">
+					<a id="feijao" href="#">
+						<img src="img/feijao.jpg">
+					</a>
+					<div class="caption">
+						<b><h3>Feijão</h3></b>
+					</div>
+					<div class="alert alert-danger" id="alertFeijao" style="display:none">
+						Resposta incorreta.
+					</div>
+				</div>
+				<div class="col-md-3">
+					<a id="batata" href="#">
+						<img src="img/batata.jpg">
+					</a>
+					<div class="caption">
+						<b><h3>Batata</h3></b>
+					</div>
+					<div class="alert alert-danger" id="alertBatata" style="display:none">
+						Resposta incorreta.
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="grupo2" class="panel panel-warning text-center">
+			<div class="panel-heading text-center">
+              	<h3><b>Grupo 2</b></h3>
+            </div>
+            <div class="panel-body">
+	            <div class="col-md-3">
+	            	<a id="bicicleta" href="#">
+						<img src="img/bicicleta.jpg">
+					</a>
+					<div class="caption">
+						<b><h3>Bicicleta</h3></b>
+					</div>
+					<div class="alert alert-danger" id="alertBicicleta" style="display:none">
+						Resposta incorreta.
+					</div>
+				</div>
+				<div class="col-md-3">
+					<a id="carro" href="#">
+						<img src="img/carro.jpg">
+					</a>
+					<div class="caption">
+						<b><h3>Carro</h3></b>
+					</div>
+					<div class="alert alert-danger" id="alertCarro" style="display:none">
+						Resposta incorreta.
+					</div>
+				</div>
+				<div class="col-md-3">
+					<a id="algodao" href="#">
+						<img src="img/algodaodoce.jpg">
+					</a>
+					<div class="caption">
+						<b><h3>Algodão doce</h3></b>
+					</div>
+					<div class="alert alert-success" id="alertAlgodao" style="display:none">
+						Resposta correta, parabéns!
+					</div>
+				</div>
+				<div class="col-md-3">
+					<a id="moto" href="#">
+						<img src="img/moto.jpg">
+					</a>
+					<div class="caption">
+						<b><h3>Moto</h3></b>
+					</div>
+					<div class="alert alert-danger" id="alertMoto" style="display:none">
+						Resposta incorreta.
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="grupo3" class="panel panel-warning text-center">
+			<div class="panel-heading text-center">
+              	<h3><b>Grupo 3</b></h3>
+            </div>
+            <div class="panel-body">
+	            <div class="col-md-3">
+	            	<a id="oculos" href="#">
+						<img src="img/oculos.jpg">
+					</a>
+					<div class="caption">
+						<b><h3>Óculos</h3></b>
+					</div>
+					<div class="alert alert-danger" id="alertOculos" style="display:none">
+						Resposta incorreta.
+					</div>
+				</div>
+				<div class="col-md-3">
+					<a id="cadeira" href="#">
+						<img src="img/cadeira.jpg">
+					</a>
+					<div class="caption">
+						<b><h3>Cadeira de praia</h3></b>
+					</div>
+					<div class="alert alert-danger" id="alertCadeira" style="display:none">
+						Resposta incorreta.
+					</div>
+				</div>
+				<div class="col-md-3">
+					<a id="sombrinha" href="#">
+						<img src="img/sombrinha.jpg">
+					</a>
+					<div class="caption">
+						<b><h3>Sombrinha</h3></b>
+					</div>
+					<div class="alert alert-danger" id="alertSombrinha" style="display:none">
+						Resposta incorreta.
+					</div>
+				</div>
+				<div class="col-md-3">
+					<a id="maquina" href="#">
+						<img src="img/maquina.jpg">
+					</a>
+					<div class="caption">
+						<b><h3>Máquina de lavar</h3></b>
+					</div>
+					<div class="alert alert-success" id="alertMaquina" style="display:none">
+						Resposta correta, parabéns!
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="grupo4" class="panel panel-warning text-center">
+			<div class="panel-heading text-center">
+              	<h3><b>Grupo 4</b></h3>
+            </div>
+            <div class="panel-body">
+	            <div class="col-md-3">
+	            	<a id="bola" href="#">
+						<img src="img/bola.jpg">
+					</a>
+					<div class="caption">
+						<b><h3>Bola</h3></b>
+					</div>
+					<div class="alert alert-danger" id="alertBola" style="display:none">
+						Resposta incorreta.
+					</div>
+				</div>
+				<div class="col-md-3">
+					<a id="skate" href="#">
+						<img src="img/skate.jpg">
+					</a>
+					<div class="caption">
+						<b><h3>Skate</h3></b>
+					</div>
+					<div class="alert alert-danger" id="alertSkate" style="display:none">
+						Resposta incorreta.
+					</div>
+				</div>
+				<div class="col-md-3">
+					<a id="patins" href="#">
+						<img src="img/patins.jpg">
+					</a>
+					<div class="caption">
+						<b><h3>Patins</h3></b>
+					</div>
+					<div class="alert alert-danger" id="alertPatins" style="display:none">
+						Resposta incorreta.
+					</div>
+				</div>
+				<div class="col-md-3">
+					<a id="chave" href="#">
+						<img src="img/chave.jpg">
+					</a>
+					<div class="caption">
+						<b><h3>Chave de fenda</h3></b>
+					</div>
+					<div class="alert alert-success" id="alertChave" style="display:none">
+						Resposta correta, parabéns!
+					</div>
+				</div>
+			</div>
+		</div><br>
+		<h3 align="center"><b>Relacione o nome com a figura geométrica</b></h3><br>
+		<div id="figuras" class="panel panel-warning text-center">
+			<div class="panel-body">
+				<div class="col-md-5">
+					<button type="button" id="btTriangulo" class="btn btn-default">Triângulo</button>
+				</div>
+				<div class="col-md-5">
+					<a id="circulo">
+						<img src="img/circulo.jpg">
+					</a>
+				</div>
+				<div class="col-md-2">
+					<div class="alert alert-success" id="successTriangulo" style="display:none">
+						Resposta correta, parabéns!
+					</div>
+					<div class="alert alert-danger" id="errorTriangulo" style="display:none">
+						Resposta incorreta.
+					</div>
+				</div>
+				<div class="col-md-5">
+					<button type="button" id="btQuadrado" class="btn btn-default">Quadrado</button>
+				</div>
+				<div class="col-md-5">
+					<a id="retangulo">
+						<img src="img/retangulo.jpg">
+					</a>
+				</div>
+				<div class="col-md-2">
+					<div class="alert alert-success" id="successQuadrado" style="display:none">
+						Resposta correta, parabéns!
+					</div>
+					<div class="alert alert-danger" id="errorQuadrado" style="display:none">
+						Resposta incorreta.
+					</div>
+				</div>
+				<div class="col-md-5">
+					<button type="button" id="btCirculo" class="btn btn-default">Círculo</button>
+				</div>
+				<div class="col-md-5">
+					<a id="quadrado">
+						<img src="img/quadrado.jpg">
+					</a>
+				</div>
+				<div class="col-md-2">
+					<div class="alert alert-success" id="successCirculo" style="display:none">
+						Resposta correta, parabéns!
+					</div>
+					<div class="alert alert-danger" id="errorCirculo" style="display:none">
+						Resposta incorreta.
+					</div>
+				</div>
+				<div class="col-md-5">
+					<button type="button" id="btRetangulo" class="btn btn-default">Retângulo</button>
+				</div>
+				<div class="col-md-5">
+					<a id="triangulo">
+						<img src="img/triangulo.jpg">
+					</a>
+				</div>
+				<div class="col-md-2">
+					<div class="alert alert-success" id="successRetangulo" style="display:none">
+						Resposta correta, parabéns!
+					</div>
+					<div class="alert alert-danger" id="errorRetangulo" style="display:none">
+						Resposta incorreta.
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
